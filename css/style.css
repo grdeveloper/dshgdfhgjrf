@@ -1,0 +1,713 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:300i,400');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+}
+
+body{
+    background: #F5F5F5;
+    font-family: Lato,Helvetica,Arial,sans-serif;
+}
+
+::selection{
+    background: transparent;
+    color: inherit;
+}
+
+.no-float::after{
+    content: "";
+    display: block;
+    float: none;
+    box-sizing: inherit;
+}
+
+    /*main content of our website*/
+
+.container{
+    width: 100%;
+    height: auto;
+    padding: 3vh;
+    position: relative;
+}
+
+a{
+    text-decoration: none;
+}
+
+    /*decoration of the header*/
+
+header{
+    /*works also under 100vh because of the parent's padding*/
+    max-width: 100%;
+    height: 94vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+
+.header-lines{
+    width: 20px;
+    position: relative;
+    z-index: 9999;
+}
+
+.header-logo, .header-lines{
+    cursor: pointer;
+}
+
+.header-lines span{
+    transition: all .5s ease-in-out;
+    width: inherit;
+    border-bottom: 2px solid white;
+    margin-top: 4px;
+    z-index: 9999;
+    display: block;
+}
+
+.header-lines span:first-child{
+    margin-top: 0;
+}
+
+    /*upper blog of the header*/
+
+.header{
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    max-width: 100%;
+    padding: 1.5rem 2rem;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    align-items: center;
+    transition: all .5s ease;
+}
+
+.header-logo img{
+    width: 70px;
+    height: 70px;
+    transform: translateX(50%);
+}
+
+.header-lang a{
+    text-transform: uppercase;
+    margin-right: 15px;
+    font-size: 1rem;
+    font-weight: 600;
+    color: white;
+}
+
+.activeLang{
+    color: #006699 !important;
+}
+
+.header-lang a:nth-child(4){
+    margin-right: 0;
+}
+
+.header-lang a:hover{
+    color: #006699;
+}
+
+    /*main heading on the header*/
+
+.heading{
+    padding-top: 8.7rem;
+    text-align: center;
+    color: white;
+    font-family: "Playfair Display",Georgia,serif;
+    font-size: 3rem;
+    text-transform: capitalize;
+    word-wrap: break-word;
+}
+
+.heading .element{
+    font-style: italic;
+}
+
+    /*animated button leading to the next section*/
+
+.header-scroll{
+    position: absolute;
+    bottom: 50px;
+    left: calc(50% - 12px);
+}
+
+.header-scroll button{
+    width: 24px;
+    height: 32px;
+    border-radius: 25px;
+    border: 2px solid white;
+    position: relative;
+    background: transparent;
+    cursor: pointer;
+}
+
+    /*some animations for the navigating button*/
+
+@keyframes jam {
+    0%{
+        top: 5px;
+        opacity: 1;
+    }
+    70%{
+        top: 5px;
+        opacity: 0.8;
+    }
+    100%{
+        top: 17px;
+        opacity: 0;
+    }
+}
+
+.header-scroll button span{
+    display: block;
+    position: absolute;
+    top: 5px;
+    left: 10px;
+    transform: translateX(-50%);
+    width: 7px;
+    height: 7px;
+    background: white;
+    border-radius: 50%;
+    animation: jam 1.7s cubic-bezier(0.15, 0.41, 0.69, 0.94) infinite;
+}
+
+.slide-menu{
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: -100%;
+    left: 0;
+    z-index: 3;
+    opacity: 1;
+    background: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all .5s ease;
+}
+
+.slide-menu-links ul{
+    list-style-type: none;
+    display: block;
+}
+
+.slide-menu-links ul li{
+    display: block;
+    padding: 7px 2px;
+}
+
+.slide-menu-links ul li a{
+    text-transform: capitalize;
+    color: #121;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 3.2rem;
+    font-weight: 500;
+    display: block;
+    text-align: center;
+    position: relative;
+}
+
+.slide-menu-links ul li a:after{
+    content: "";
+    width: 0;
+    height: 1px;
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: saddlebrown;
+    display: block;
+    transition: width .4s ease-in-out;
+}
+
+.slide-menu-links ul li a:hover:after{
+    width: 100%;
+}
+
+.first-span{
+    width: 65% !important;
+    transform: rotate(-30deg) translate(-20%, 100%);
+    border-color: #112211 !important;
+}
+
+.middle-span{
+    border-color: #112211 !important;
+}
+
+.last-span{
+    width: 65% !important;
+    transform: rotate(30deg) translate(-20%, -100%);
+    border-color: #112211 !important;
+}
+
+.slider-down{
+    top: 0 !important;
+    opacity: 1 !important;
+}
+
+.body-overflow{
+    max-height: 100vh;
+    overflow-y: hidden;
+}
+
+.drop{
+    position: fixed;
+    top: -100%;
+    left: 0;
+    width: 100%;
+    z-index: 5;
+    background: rgba(255, 255, 255, .9);
+}
+
+.black-color{
+    border-color: #112211 !important;
+}
+
+.gray-lang{
+    color: gray !important;
+}
+
+.no-display{
+    opacity: 0;
+}
+
+.trans{
+    background: transparent;
+}
+
+.fluid-container{
+    padding-top: 3vh;
+}
+
+.discover-blog{
+    max-width: 100%;
+    height: 94vh;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.animated{
+    transition-property: opacity, transform;
+    transition-duration: 0.8s;
+    opacity: 0;
+    transform: translateY(50px);
+}
+
+.animated.show {
+    transform: translateY(0px);
+    opacity: 1;
+}
+
+.discover-blog__content, .discover-blog__fon{
+    width: 50%;
+    height: 100%;
+    float: left;
+    position: relative;
+}
+
+.discover-blog__content{
+    display: flex;
+    align-items: center;
+    background: white;
+}
+
+.content-blog{
+    padding-left: 5rem;
+    max-width: 95%;
+    font-family: "Playfair Display",Georgia,serif;
+}
+
+.content-blog h2{
+    font-size: 3rem;
+    transform: scaleY(1.4);
+    letter-spacing: 3px;
+    transform-origin: left;
+    word-wrap: break-word;
+    font-weight: 700;
+    text-transform: capitalize;
+}
+
+.content-blog .italic{
+    font-style: italic;
+    font-size: 1.5rem;
+    color: #999;
+    line-height: 3.5;
+}
+
+.fon-button label{
+    color: white;
+    background: #6BC199;
+    font-family: Lato,Helvetica,Arial,sans-serif;
+    text-transform: uppercase;
+    font-weight: 700;
+    padding: 1.2rem;
+    line-height: 3.5;
+    cursor: pointer;
+    transform: scaleY(1.4);
+    transform-origin: left;
+}
+
+.fon-button label:hover{
+    background: #6BB270;
+}
+
+.button{
+    line-height: 3.5;
+}
+
+.discover-blog__fon{
+    background-position: center center;
+    background-size: cover;
+}
+
+.normal{
+    color: #777;
+    line-height: 1.5;
+    font-family: Lato,Helvetica,Arial,sans-serif;
+    font-size: 1.2rem;
+}
+
+.normal:nth-of-type(3){
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    display: block;
+}
+
+.discover-blog-mini{
+     max-width: 100%;
+     height: 40vh;
+     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+     background-position: center center;
+     background-size: cover;
+     object-fit: cover;
+     padding-bottom: 40px;
+ }
+
+.valentine-blog{
+    max-width: 50%;
+    text-align: center;
+    padding-top: 40px;
+    margin: 0 auto;
+}
+
+.valentine-blog h2{
+    font-family: "Playfair Display",Georgia,serif;
+    font-size: 3rem;
+    transform: scaleY(1.2);
+    letter-spacing: 3px;
+    transform-origin: left;
+    word-wrap: break-word;
+    font-weight: 700;
+    color: white;
+}
+
+.valentine-blog p{
+    color: white;
+    font-style: italic;
+    font-weight: 400;
+    font-size: 1.5rem;
+    font-family: "Playfair Display",Georgia,serif;
+    line-height: 2.3;
+    margin-bottom: 0.5rem;
+}
+
+.valentine-blog div.fon-button label{
+    background: white;
+    color: #000;
+}
+
+.valentine-blog div.fon-button label:hover{
+    background: whitesmoke;
+}
+
+#block{
+    color: #333;
+    font-weight: 500;
+    font-style: italic;
+    font-family: "Playfair Display",Georgia,serif;
+    z-index: 9999;
+}
+
+.discover-blog-maps{
+     max-width: 100%;
+     height: 70vh;
+     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+ }
+
+.flex-blog{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.flex-blog div{
+    width: 25%;
+    height: inherit;
+    background-size: cover;
+    background-position: center center;
+}
+
+.flex-label{
+    background: white;
+    color: black;
+}
+
+.pics-blog{
+    text-align: center;
+    padding-top: 40px;
+    margin: 0 auto;
+    background: white;
+}
+
+.pics-blog h2{
+    color: black;
+}
+
+.valentine-blog p{
+    color: rgba(51,51,51,0.6);
+    font-size: 1.2rem;
+}
+
+.button-center{
+    display: inline;
+    margin: 0 auto;
+}
+
+.button-center label{
+    border: 1px solid silver;
+}
+
+.button-center label:hover{
+    border: 1px solid #999;
+}
+
+.slide-text{
+    color: white;
+    text-align: center;
+    font-family: "Playfair Display",Georgia,serif;
+    font-style: italic;
+    transition: opacity .5s ease-in-out;
+}
+
+.slide-text a{
+    display: block;
+    padding-top: 55%;
+    opacity: 0;
+    color: white;
+    transition: all .5s ease-in-out;
+}
+
+.slide-text:hover{
+    opacity: .85;
+}
+
+.slide-text:hover a{
+    padding-top: 40%;
+    opacity: 1;
+}
+
+.footer{
+    width: 100% !important;
+    background: white;
+    padding: 2rem 0 1rem 1rem;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.footer-container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-width: 80%;
+}
+
+.footer-container__blocks:first-child{
+    max-width: 600px;
+}
+
+.footer-container__blocks img{
+    display: block;
+    width: 60px;
+    height: 60px;
+    float: left;
+    cursor: pointer;
+    margin-right: 5px;
+}
+
+.footer-container__blocks h4{
+    padding-bottom: 1.5rem;
+    text-transform: capitalize;
+    font-size: 1.1rem;
+}
+
+.footer-container__blocks p{
+    line-height: 1.5;
+    padding-bottom: 1.1rem;
+}
+
+.footer-container__blocks {
+    opacity: .8;
+    margin-right: 50px;
+}
+
+.fa{
+    color: #000;
+    font-size: 1.5rem;
+    margin-right: 4px;
+    padding-bottom: 1.1rem;
+}
+
+.fa:hover{
+    color: saddlebrown;
+}
+
+.footer-copy{
+    padding-top: 1.1rem;
+    opacity: .8;
+    font-size: .9rem;
+}
+
+.footer-copy span{
+    cursor: pointer;
+}
+
+.footer-copy span:hover{
+    color: saddlebrown;
+}
+
+.footer-container__blocks ul{
+    list-style: none;
+    display: block;
+    padding-bottom: 1.1rem;
+}
+
+.footer-container__blocks ul li a{
+    display: block;
+    color: #000;
+    line-height: 1.5;
+}
+
+.footer-container__blocks ul li a:hover{
+    color: saddlebrown;
+}
+
+.slider-blog{
+     background: white;
+ }
+
+.slider-blog h2{
+    color: rgba(0, 0, 0, .9);
+}
+
+.slider__button{
+    text-align: center;
+    margin-top: 30px;
+}
+
+.owl-carousel img{
+    height: 20rem;
+    border-radius: 40px;
+    border: 5px solid whitesmoke;
+    object-fit: cover;
+}
+
+.item{
+    opacity:0.4;
+    transition:.4s ease all;
+    margin:0 20px;
+    transform:scale(.8);
+}
+
+.active .item{
+    opacity:1;
+    transform:scaleY(1) scaleX(.75);
+}
+
+.owl-item {
+    -webkit-backface-visibility: hidden;
+    -webkit-transform: translateZ(0) scale(1.0, 1.0);
+}
+
+.slider-blog{
+    height: auto;
+    padding-bottom: 40px;
+}
+
+.fluent-height{
+    height: auto;
+    padding-bottom: 40px;
+}
+
+@media screen and (max-width: 1157px){
+    .footer-container{
+        display: block;
+    }
+
+    .footer-container__blocks{
+        display: inline-block;
+    }
+}
+
+@media screen and (max-width: 991px){
+    html{
+        font-size: 80%;
+    }
+}
+
+@media screen and (max-width: 615px){
+    html{
+        font-size: 70%;
+    }
+    .discover-blog article, .discover-blog aside,
+    .discover-blog-maps article, .discover-blog-maps aside{
+        min-width: 100%;
+        height: 47vh;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        float: none;
+    }
+    .discover-blog article > *, .discover-blog-maps article > *{
+        padding-left: 0;
+    }
+    .discover-blog-maps{
+        height: 94vh;
+    }
+    .blocks{
+        height: 80vh;
+    }
+    .blocks > div{
+        width: 50%;
+        height: 40vh;
+    }
+}
+
+@media screen and (max-width: 511px){
+    html{
+        font-size: 60%;
+    }
+    h2{
+        font-size: 50%;
+    }
+    .valentine-blog h2{
+        word-wrap: normal;
+        text-align: center;
+    }
+    .active .item{
+        transform: scaleX(1.25);
+    }
+    .valentine-blog{
+        max-width: 87%;
+    }
+    header{
+        background-position: -200px center;
+    }
+    .header-logo img{
+        transform: translateX(35%);
+    }
+}
+
+
