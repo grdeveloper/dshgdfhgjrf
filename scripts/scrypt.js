@@ -93,6 +93,7 @@
 
     button.addEventListener('click', function go() {
         div.scrollIntoView({'behavior' : 'smooth', 'block' : 'start'});
+        // div.scrollIntoViewIfNeeded({'behavior' : 'smooth', 'block' : 'start'});
     });
 
     window.addEventListener('scroll', function () {
